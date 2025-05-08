@@ -17,6 +17,11 @@ export default function Cadastrar(){
     async function handleSubmit(event){
         event.preventDefault();
 
+        if(!titulo || !diretor || !ano || !genero || !nota || !sinopse || !banner){
+            toast.error("Preencha todos os campos!")
+            return;
+        }
+
         try {
             await instance.post("/api/movies", {
                 titulo:titulo,
@@ -63,7 +68,7 @@ export default function Cadastrar(){
                         />
                         <CustonInput 
                             label="Diretor"
-                            value={titulo}
+                            value={diretor}
                             placeholder="Digite o nome do diretor"
                             type="text"
                             onChange={(event) => setDiretor(event.target.value)}
