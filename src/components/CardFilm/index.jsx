@@ -1,17 +1,26 @@
-export default function CardFilm(){
+export default function CardFilme({ filme }){
     return (
-        <div className="w-[280px] h-[250px] flex flex-col rounded-lg bg-[#222222]">
-            <div className="w-[100%] h-[70%] rounded-t-lg">
-                <img className="w-full h-full rounded-t-lg object-cover"
-                 src="https://th.bing.com/th/id/OIP.ol6bXutpoZhylzXBjd09TwHaEU?w=305&h=180&c=7&r=0&o=5&pid=1.7" 
-                 alt="" />
+        <div className="w-[350px] h-[280px] flex flex-col rounded-lg
+         bg-[#222222] cursor-pointer border border-transparent
+          hover:border-[#8F7BD8] 
+            transition-all duration-300 ease-in-out">
+            <div className="w-full h-[70%] rounded-t-lg relative">
+                <img
+                    className="w-full h-full rounded-t-lg object-cover"
+                    src={filme.banner}
+                    alt={filme.titulo}
+                />
+                <div className="absolute top-1 left-2 flex text-[#9ca3af]">
+                    <p className="text-[17px] text-green-400 font-semibold">{filme.nota}</p>
+                    <p>/10</p>
+                </div>
             </div>
-            <div className="w-full h-[30%] flex flex-col pt-0 px-4">
-                <p className="text-[15px] font-bold">O Jardim das Palavras</p>
-                <p className="text-15px] text-[#8a898c]">Makoto Shinkai</p>
-                <div className="w-full flex justify-between ">
-                    <p className="text-[15px] text-[#8a898c]">2013</p>
-                    <div className="px-1 py-0 bg-[#8f7bd8]/10 text-[#8f7bd8] rounded-md">Drama</div>
+            <div className="w-full h-[30%] flex flex-col pt-2 px-4">
+                <p className="text-[15px] font-bold">{filme.titulo}</p>
+                <p className="text-[15px] text-[#8a898c]">{filme.diretor}</p>
+                <div className="w-full flex justify-between">
+                    <p className="text-[15px] text-[#8a898c]">{filme.ano}</p>
+                    <div className="px-2 py-0 bg-[#8F7BD8]/10 text-[#8F7BD8] rounded-lg">{filme.genero}</div>
                 </div>
             </div>
         </div>
